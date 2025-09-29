@@ -1,7 +1,11 @@
+import sys, os
 import pytest
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from aluno import Aluno
 
-# ---------- Testes de criação ----------
+
 def test_criacao_aluno_nome():
     aluno = Aluno("Maria")
     assert aluno.nome == "Maria"
@@ -12,7 +16,7 @@ def test_criacao_aluno_sem_notas():
     assert aluno.calcular_media() == 0
     assert aluno.situacao() == "Reprovado"
 
-# ---------- Testes de adicionar notas ----------
+
 def test_adicionar_nota_valida():
     aluno = Aluno("João")
     aluno.adicionar_nota(8)
@@ -34,7 +38,7 @@ def test_adicionar_nota_invalida_maior_que_10():
     with pytest.raises(ValueError):
         aluno.adicionar_nota(11)
 
-# ---------- Testes de média ----------
+
 def test_media_sem_notas():
     aluno = Aluno("Lucas")
     assert aluno.calcular_media() == 0
@@ -57,7 +61,7 @@ def test_media_com_decimais():
     aluno.adicionar_nota(7)
     assert pytest.approx(aluno.calcular_media(), 0.01) == 6.0
 
-# ---------- Testes de situação ----------
+
 def test_situacao_aprovado():
     aluno = Aluno("Julia")
     aluno.adicionar_nota(8)
@@ -105,3 +109,17 @@ def test_media_nao_modifica_notas():
     aluno.adicionar_nota(5)
     _ = aluno.calcular_media()
     assert aluno.notas == [10, 5]
+
+
+
+def test_media_todas_notas_iguais():
+    aluno = Aluno("Igor")
+    for _ in range(5):
+        aluno.adicionar_nota(7)
+    assert aluno.calcular_media() == 7
+    assert aluno.situacao() == "Aprovado"
+
+def test_adicionar_nota_tipo_invalido():
+    aluno = Aluno("Paula")
+    with pytest.raises(TypeError):
+        aluno.adicionar_nota("dez")  
