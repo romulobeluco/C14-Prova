@@ -36,7 +36,8 @@ jobs:
           path: report.xml
 
   # 🔹 2) Job de Build (roda em paralelo)
-build:
+  # 🔹 2) Job de Build (roda em paralelo)
+  build:
     runs-on: ubuntu-latest
     needs: tests
     steps:
@@ -62,6 +63,7 @@ build:
         with:
           name: pacote-python
           path: dist/*
+
   # 🔹 3) Job de Notificação (em paralelo)
   notify:
     runs-on: ubuntu-latest
