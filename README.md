@@ -44,38 +44,26 @@ git clone https://github.com/romulobeluco/C14-Prova.git
 cd C14-Prova
 ````
 
-2. **🌱 Criar e ativar um ambiente virtual:**
-
-```bash
-# Linux/Mac
-python3 -m venv venv
-source venv/bin/activate
-
-# Windows
-python -m venv venv
-venv\Scripts\activate
-```
-
-3. **📦 Instalar dependências:**
+2. **📦 Instalar dependências:**
 
 ```bash
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-4. **🧪 Rodar os testes com pytest:**
+3. **🧪 Rodar os testes com pytest:**
 
 ```bash
 pytest -v
 ```
 
-5. **📦 Empacotar o projeto (opcional):**
+4. **📦 Empacotar o projeto (opcional):**
 
 ```bash
 python -m build
 ```
 
-6. **👨‍💻 Executar a classe Aluno manualmente (exemplo):**
+5. **👨‍💻 Executar a classe Aluno manualmente (exemplo):**
 
 ```bash
 python
