@@ -50,7 +50,7 @@ jobs:
 
       - name: Empacotar projeto
         run: |
-          python setup.cfg sdist bdist_wheel
+          python setup.py sdist bdist_wheel
 
       - name: Salvar pacote
         uses: actions/upload-artifact@v4
